@@ -16,62 +16,72 @@ $(function() {
     $('.ui.form').form();
 
     $('[name=palPas]').blur((e) => {
-        if(e.target.value === ''){
-            $(e.target).parent().removeClass('success error');
-        } else {
-            let hashPalPas = CryptoJS.SHA1(e.target.value).toString();
-            if(hashPalPas === pasCom || hashPalPas === pasMas){
-                $(e.target).parent().addClass('success').removeClass('error');
-            } else {
-                $(e.target).parent().addClass('error').removeClass('success');
-            }
-        }
+        evalInput(e.target, 1);
     });
 
     $('[name=palSag]').blur((e) => {
-        if(e.target.value === ''){
-            $(e.target).parent().removeClass('success error');
-        } else {
-            let hashPalSag = CryptoJS.SHA1(e.target.value).toString();
-            if(hashPalSag === apr || hashPalSag === sagCom || hashPalSag === sagMas){
-                $(e.target).parent().addClass('success').removeClass('error');
-            } else {
-                $(e.target).parent().addClass('error').removeClass('success');
-            }
-        }
+        evalInput(e.target, 2);
     });
 
     $('[name=edad]').blur((e) => {
-        if(e.target.value === ''){
-            $(e.target).parent().removeClass('success error');
-        } else {
-            let hashEdad = CryptoJS.SHA1(e.target.value).toString();
-            if(hashEdad === edadApr || hashEdad === edadCom || hashEdad === edadMas){
-                $(e.target).parent().addClass('success').removeClass('error');
-            } else {
-                $(e.target).parent().addClass('error').removeClass('success');
-            }
-        }
+        evalInput(e.target, 3);
     });
 
-    $('.ui.form').submit(() =>{
+    $('.ui.form').submit((e) => {
+        e.preventDefault();
+        e.stopPropagation();
         let palPas = $('.ui.form').form('get value', 'palPas').toLowerCase();
         let palSag = $('.ui.form').form('get value', 'palSag').toLowerCase();
-        let edad = $('.ui.form').form('get value', 'edad').toLowerCase();
-
-        let hashPalPas = CryptoJS.SHA1(palPas).toString();
-        let hashPalSag = CryptoJS.SHA1(palSag).toString();
-        let hashEdad = CryptoJS.SHA1(edad).toString();
-
-        if(hashPalSag === apr && hashEdad === edadApr){
-            alert('¡Bienvenido Aprendiz!');
-        } else if(hashPalPas === pasCom && hashPalSag == sagCom && hashEdad === edadCom){
-            alert('¡Bienvenido Compañero!');
-        } else if(hashPalPas === pasMas && hashPalSag == sagMas && hashEdad === edadMas){
-            alert('¡Bienvenido Maestro!');
-        } else {
-            alert('Datos incorrectos');
+        let edad = $('.ui.form').form('get value', 'edad').toLowerCase();       
+        let signIn = evalGrade(palPas, palSag, edad);
+        if(signIn) window.location.href = "file:///C:/Users/Amperio/geamannan/memento.html";
+        else {
+            $('.ui.error.message').html('La información ingresada es incorrecta.').show();
         }
-        
     });
 });
+
+function evalInput(obj, grade){
+    let $field = $(obj).parent();
+    if(obj.value){
+        let correctValue = evalValue(obj.name, obj.value);        
+        if (correctValue) $field.addClass('success').removeClass('error');
+        else $field.addClass('error').removeClass('success');
+    } else {
+        if (grade === 1 && obj.name == 'palPas') $field.removeClass('success error');
+        else $field.addClass('error').removeClass('success');
+    }
+    $('.ui.error.message').hide();
+}
+
+function evalValue(name, value){
+    let hashValue = CryptoJS.SHA1(value).toString();
+    if(name == 'palPas') 
+        return hashValue === pasCom || hashValue === pasMas ;
+    else if(name === 'palSag') 
+        return hashValue === apr || hashValue === sagCom || hashValue === sagMas;
+    else if(name === 'edad') 
+        return hashValue === edadApr || hashValue === edadCom || hashValue === edadMas;
+}
+
+function evalGrade(palPas, palSag, edad){
+    let hashPalPas = CryptoJS.SHA1(palPas).toString();
+    let hashPalSag = CryptoJS.SHA1(palSag).toString();
+    let hashEdad = CryptoJS.SHA1(edad).toString();
+    let result = false;
+    let grade = 0;
+
+    if(hashPalSag === apr && hashEdad === edadApr){
+        grade = 1;
+        result = true;
+    } else if(hashPalPas === pasCom && hashPalSag == sagCom && hashEdad === edadCom){
+        grade = 2;
+        result = true;
+    } else if(hashPalPas === pasMas && hashPalSag == sagMas && hashEdad === edadMas){
+        grade = 3;
+        result = true;
+    } 
+
+    window.localStorage.setItem("grado", grade);
+    return result;
+}
