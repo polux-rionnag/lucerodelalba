@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+      
+        <title>Ingresar - Logia Lucero del Alba</title>
+
+        <link rel="stylesheet" type="text/css" href="dist/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="dist/components/reset.css">
+
+        <link rel="stylesheet" type="text/css" href="dist/components/container.css">
+        <link rel="stylesheet" type="text/css" href="dist/components/grid.css">
+        <link rel="stylesheet" type="text/css" href="dist/components/header.css">
+        <link rel="stylesheet" type="text/css" href="dist/components/image.css">
+        <link rel="stylesheet" type="text/css" href="dist/components/menu.css">
+
+        <link rel="stylesheet" type="text/css" href="dist/components/divider.css">
+        <link rel="stylesheet" type="text/css" href="dist/components/segment.css">
+        <link rel="stylesheet" type="text/css" href="dist/components/form.css">
+        <link rel="stylesheet" type="text/css" href="dist/components/input.css">
+        <link rel="stylesheet" type="text/css" href="dist/components/button.css">
+        <link rel="stylesheet" type="text/css" href="dist/components/list.css">
+        <link rel="stylesheet" type="text/css" href="dist/components/message.css">
+        <link rel="stylesheet" type="text/css" href="dist/components/icon.css">
+
+        <link rel="stylesheet" type="text/css" href="dist/login.css">
+    </head>
+    <body>
+
+        
+        <div class="ui middle aligned center aligned grid">
+            <div class="column">
+              <h2 class="ui teal image header">
+                <img src="dist/img/logo_lucero.png" class="image">
+                <div class="content">
+                  Ingresar
+                </div>
+              </h2>
+              <form class="ui large form" autocomplete="off">
+                <div class="ui stacked segment">
+                  <div class="field">
+                    <div class="ui left icon input">
+                      <i class="key icon"></i>
+                      <input type="password" name="palPas" placeholder="Palabra de pase (opcional)" autofocus>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui left icon input">
+                      <i class="lock icon"></i>
+                      <input type="password" name="palSag" placeholder="Palabra sagrada">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui left icon input">
+                      <i class="lock icon"></i>
+                      <input type="password" name="edad" placeholder="¿Qué edad teneis?">
+                    </div>
+                    <small class="meta left aligned">Puede incluir símbolos (+, -, *, x)</small>
+                  </div>
+                  <div class="ui fluid large teal submit button">Entrar</div>
+                </div>
+                <div class="ui error message"></div>
+              </form>
+
+            </div>
+          </div>
+          
+
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+        <script src="dist/semantic.min.js"></script>
+        <script src="dist/components/form.js"></script>
+        <script src="dist/components/transition.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js" integrity="sha512-nOQuvD9nKirvxDdvQ9OMqe2dgapbPB7vYAMrzJihw5m+aNcf0dX53m6YxM4LgA9u8e9eg9QX+/+mPu8kCNpV2A==" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js" crossorigin="anonymous"></script>
+        <script src="dist/login.js"></script>
+    </body>
+</html>
