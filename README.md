@@ -1,4 +1,6 @@
 # geamannan
-*Tha am pròiseact seo airson a bhith ag ionnsachadh samhlaidhean preantas*
-_This project is for learning apprentice symbolism_
-`Este proyecto es para aprender el simbolismo de aprendiz`
+*Tha am pròiseact seo mar chruinneachadh de na ciad trì ìrean de Saor-chlachaireachd*   
+
+_This project is an instructional compendium of the first three degrees of Freemasonry _   
+
+`Este proyecto es un compendio de instrucción de los tres primeros grados de la francmasonería`   
