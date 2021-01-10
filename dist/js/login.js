@@ -12,8 +12,8 @@ var edadApr = '77de68daecd823babbb58edb1c8e14d7106e83bb';
 var edadCom = 'ac3478d69a3c81fa62e60f5c3696165a4e5e6ac4';
 var edadMas = '13be43394a8acad2286982eb67e339ad63ab2e12';
 
-var body = $('body').html();
-$('body').html('');
+//var body = $('body').html();
+//$('body').html('');
 
 $(function() {
     $('#formLogin').form();
@@ -34,7 +34,7 @@ $(function() {
     }
     else{
         sessionStorage.removeItem("grado");
-        $('body').html(body);
+        //$('body').html(body);
     }
     
     $('[name=palPas]').blur((e) => {
