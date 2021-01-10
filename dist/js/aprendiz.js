@@ -9,7 +9,7 @@ $(function() {
         $('body').html('');
         setTimeout(function(){
             alert('¡CUIDADO!¡NO ES DE TU GRADO!');
-            window.location.href='login.html';
+            window.location.href='../index.html';
         }, 300);
     }
     else{
