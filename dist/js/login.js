@@ -25,11 +25,11 @@ $(function() {
         let grado = sessionStorage.getItem("grado");
         let hashGrado = CryptoJS.SHA1(grado).toString();;
         if(hashGrado == '356a192b7913b04c54574d18c28d46e6395428ab'){
-            window.location.href='aprendiz.html';
+            window.location.href='pages/aprendiz.html';
         } else if(hashGrado == 'da4b9237bacccdf19c0760cab7aec4a8359010b0'){
-            window.location.href='companero.html';
+            window.location.href='pages/companero.html';
         } else if(hashGrado == '77de68daecd823babbb58edb1c8e14d7106e83bb'){
-            window.location.href='maestro.html';
+            window.location.href='pages/maestro.html';
         }
     }
     else{
