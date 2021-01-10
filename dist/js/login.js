@@ -98,13 +98,13 @@ $(function() {
         
         if(hashPalSag === apr && hashEdad === edadApr){
             sessionStorage.setItem("grado","1");
-            window.location.href="aprendiz.html";
+            window.location.href="pages/aprendiz.html";
         } else if(hashPalPas === pasCom && hashPalSag == sagCom && hashEdad === edadCom){
             sessionStorage.setItem("grado","2");
-            window.location.href="companero.html";
+            window.location.href="pages/companero.html";
         } else if(hashPalPas === pasMas && hashPalSag == sagMas && hashEdad === edadMas){
             sessionStorage.setItem("grado","3");
-            window.location.href="maestro.html";
+            window.location.href="pages/maestro.html";
         } else {
             $('#errorMsg').html('Datos incorrectos');
         }

@@ -20,9 +20,3 @@ $(function() {
         on: 'hover'
       });
 });
-
-function logout(){
-    sessionStorage.removeItem('grado');
-    sessionStorage.removeItem('persLogin');
-    window.location.href='login.html';
-}

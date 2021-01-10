@@ -156,12 +156,6 @@ $(function() {
     });
 });
 
-function logout(){
-    sessionStorage.removeItem('grado');
-    sessionStorage.removeItem('persLogin');
-    window.location.href='login.html';
-}
-
 function initDistTemplo(){
     $('#elementosTemplo-izq, #elementosTemplo-der').html('');
     shuffleArray(elementosTemplo);
